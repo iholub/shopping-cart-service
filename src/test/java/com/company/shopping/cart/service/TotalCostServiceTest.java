@@ -41,9 +41,11 @@ public class TotalCostServiceTest {
         return Stream.of(
                 Arguments.of(List.of(), 0),
                 Arguments.of(List.of(Course.Math), 60),
-                Arguments.of(List.of(Course.Math, Course.Math), 120),
+                Arguments.of(List.of(Course.Math, Course.Math), 60),
+                Arguments.of(List.of(Course.Math, Course.Math, Course.Math), 120),
                 Arguments.of(List.of(Course.Physics, Course.Physics), 50),
-                Arguments.of(List.of(Course.Math, Course.Physics), 85)
+                Arguments.of(List.of(Course.Math, Course.Physics), 85),
+                Arguments.of(List.of(Course.Math, Course.Math, Course.Physics), 85)
         );
     }
 }
