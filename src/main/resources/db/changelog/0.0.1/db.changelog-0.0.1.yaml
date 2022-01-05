@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_shopping_order
+      author: Ivan Holub
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            path: scripts/01-shopping_order.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: create_table_shopping_order_products
+      author: Ivan Holub
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            path: scripts/02-shopping_order_products.sql
+            relativeToChangelogFile: true
