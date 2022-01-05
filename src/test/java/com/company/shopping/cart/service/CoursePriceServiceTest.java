@@ -22,6 +22,11 @@ public class CoursePriceServiceTest {
         assertEquals(25, service.getPrice(Course.Physics));
     }
 
+    @Test
+    public void testChemistry() {
+        assertEquals(20, service.getPrice(Course.Chemistry));
+    }
+
     @ParameterizedTest
     @EnumSource(Course.class)
     void testAllEnumValues(Course course) {

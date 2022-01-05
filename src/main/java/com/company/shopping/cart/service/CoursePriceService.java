@@ -9,7 +9,8 @@ import java.util.Map;
  */
 public class CoursePriceService {
 
-    private Map<Course, Integer> prices = Map.of(Course.Math, 60, Course.Physics, 25);
+    private Map<Course, Integer> prices = Map.of(Course.Math, 60,
+            Course.Physics, 25, Course.Chemistry, 20);
 
     /**
      * Returns the price of specified course.
