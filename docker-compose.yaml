@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  shopping-cart-db:
+    container_name: shopping-cart-db
+    image: postgres:13.1
+    volumes:
+      - shopping-cart-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+    networks:
+      - shopping-cart-network
+
+  shopping-cart-service:
+    container_name: shopping-cart-service
+    build: .
+    image: shopping-cart-service
+    environment:
+      JAVA_OPTS: >
+        -Dspring.datasource.url=jdbc:postgresql://shopping-cart-db:5432/${POSTGRES_DB}
+        -Dspring.datasource.username=${POSTGRES_USER}
+        -Dspring.datasource.password=${POSTGRES_PASSWORD}
+    depends_on:
+      - shopping-cart-db
+    ports:
+      - 8080:8080
+    networks:
+      - shopping-cart-network
+
+networks:
+  shopping-cart-network:
+    driver: bridge
+
+volumes:
+  shopping-cart-data:

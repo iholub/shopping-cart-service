@@ -1,12 +1,14 @@
 package com.company.shopping.cart.service;
 
 import com.company.shopping.cart.model.Course;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 /**
  * Returns prices for courses.
  */
+@Component
 public class CoursePriceService {
 
     private Map<Course, Integer> prices = Map.of(Course.Math, 60,

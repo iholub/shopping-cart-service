@@ -4,6 +4,7 @@ import com.company.shopping.cart.model.Course;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
  * Calculates total cost for specified list of courses (shopping cart).
  */
 @RequiredArgsConstructor
+@Component
 public class TotalCostService {
 
     private final CoursePriceService coursePriceService;
